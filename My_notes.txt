@@ -1,0 +1,8 @@
+Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwind
+	-	Video Link: https://youtu.be/2aeMRB8LL4o
+	-	Github Repository: https://github.com/AntonioErdeljac/next13-spotify
+
+	05:00 npx creact-react-app .
+	13:50 npm i react-icons
+	17:21	npm i tailwind-merge (not used)
+	56:22	Mark
