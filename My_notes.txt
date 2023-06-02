@@ -5,4 +5,7 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	05:00 npx creact-react-app .
 	13:50 npm i react-icons
 	17:21	npm i tailwind-merge (not used)
-	56:22	Mark
+	56:22	Supabase create DB
+	01:18:56	Generating types using Supabase CLI
+						- https://supabase.com/docs/guides/api/rest/generating-types#generating-types-using-supabase-cli
+	01:22:55
