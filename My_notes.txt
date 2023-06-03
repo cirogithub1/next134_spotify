@@ -8,4 +8,15 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	56:22	Supabase create DB
 	01:18:56	Generating types using Supabase CLI
 						- https://supabase.com/docs/guides/api/rest/generating-types#generating-types-using-supabase-cli
-	01:22:55
+	01:24:51	npm i @supabase/auth-helpers-nextjs
+	01:25:30	npm i @supabase/auth-helpers-react
+						
+						import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+
+						// NOTE: `createBrowserSupabaseClient` has been renamed to `createPagesBrowserClient` in version `0.7.0`
+						source: https://www.misha.wtf/blog/supabase-auth-next-13
+	01:29:44	npm i stripe // for using some types
+						Adding stripes Types to types.ts
+	01:39:29	SupabaseProvider.tsx
+	01:46:49	UserProvider.tsx
+	
