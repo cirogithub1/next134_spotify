@@ -1,3 +1,5 @@
+"use client"
+
 import { User } from "@supabase/auth-helpers-nextjs"
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -20,7 +22,7 @@ export interface Props {
 	[propName: string]: any
 }
 
-export const MyUserContextProvider = async (props: Props) => {
+export const MyUserContextProvider = (props: Props) => {
 	const {
 		session,
 		isLoading: isLoadingUser,

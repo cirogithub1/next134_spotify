@@ -19,4 +19,12 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 						Adding stripes Types to types.ts
 	01:39:29	SupabaseProvider.tsx
 	01:46:49	UserProvider.tsx
-	
+	01:52:41	Radix-ui for controling Modals
+						npm install @radix-ui/react-dialog
+
+	02:02:30 	https://docs.pmnd.rs/zustand/getting-started/introduction#installation
+						npm install zustand
+
+	02:05:54	npm i @supabase/auth-ui-react
+						npm i @supabase/auth-ui-shared
+	02:15:21	Mark

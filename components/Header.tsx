@@ -2,11 +2,13 @@
 
 import { useRouter } from 'next/navigation'
 import { FC, ReactNode } from 'react'
+import useAuthModal from '@/hooks/useAuthModal'
+
 import { RxCaretLeft, RxCaretRight } from 'react-icons/rx'
 import { HiHome } from 'react-icons/hi'
 import { BiSearch } from 'react-icons/bi'
-import Button from './Button'
 
+import Button from './Button'
 interface Props {
 	children: ReactNode,
 	className: string
@@ -15,6 +17,7 @@ interface Props {
 const Header: FC<Props> = ({ children, className }) => {
 
 	const router = useRouter()
+	const authModal = useAuthModal()
 
 	const handleLogout = () => {
 		// 
@@ -85,6 +88,7 @@ const Header: FC<Props> = ({ children, className }) => {
 							<Button
 								className='
 									bg-transparent text-neutral-300 font-medium'
+								onClick={authModal.onOpen}
 							>
 								Sign up
 							</Button>
@@ -94,6 +98,7 @@ const Header: FC<Props> = ({ children, className }) => {
 							<Button
 								className='
 									bg-gray-100 px-6 py-2'
+								onClick={authModal.onOpen}
 							>
 								Log in
 							</Button>
