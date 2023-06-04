@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import { FC, ReactNode } from "react"
 import { MyUserContextProvider } from "@/hooks/useUser"

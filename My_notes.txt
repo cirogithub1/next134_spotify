@@ -27,4 +27,8 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 
 	02:05:54	npm i @supabase/auth-ui-react
 						npm i @supabase/auth-ui-shared
-	02:15:21	Mark
+	02:15:21	Github auth login keys
+	02:21:55	Toaster components
+						npm i react-hot-toast
+	
+	02:24:40	Mark
