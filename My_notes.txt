@@ -31,4 +31,8 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	02:21:55	Toaster components
 						npm i react-hot-toast
 	
-	02:24:40	Mark
+	02:25:00	The "Add to librery button"
+	02:31:13	npm i react-hook-form
+						npm i uniqid
+						npm i -D @types/uniqid
+	02:40:31	Mark

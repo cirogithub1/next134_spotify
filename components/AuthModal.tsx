@@ -15,7 +15,7 @@ const AuthModal = () => {
 	const { session } = useSessionContext()
 	const { onClose , isOpen } = useAuthModal()
  
-	const onChange = (open: boolean) => {
+	const handleChange = (open: boolean) => {
 		if (!open) {
 			onClose()
 		}
@@ -33,7 +33,7 @@ const AuthModal = () => {
 			title='Welcome back'
 			description='Login to your account to continue'
 			isOpen={isOpen}
-			onChange={onChange}
+			onChange={handleChange}
 		>
 			<Auth 
 				supabaseClient={supabaseClient}
