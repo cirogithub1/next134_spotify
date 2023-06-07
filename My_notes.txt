@@ -35,4 +35,5 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	02:31:13	npm i react-hook-form
 						npm i uniqid
 						npm i -D @types/uniqid
-	02:40:31	Mark
+	02:40:31	Modal component for adding songs
+	02:53:49	Mark

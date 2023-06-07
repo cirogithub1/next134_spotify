@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { FC, ReactNode} from 'react'
+import { FC } from 'react'
 import { FaPlay } from 'react-icons/fa'
 
 interface Props {
@@ -30,7 +30,11 @@ const ListItem: FC<Props> = ({image, name, href}) => {
 						object-cover p-0'
 					fill
 					src={image}
-					alt={name} />
+					alt={name}
+					sizes='20'
+					placeholder="blur"
+					blurDataURL={image} 
+				/>
 			</div>
 
 			<p className="font-medium truncate py-4">
