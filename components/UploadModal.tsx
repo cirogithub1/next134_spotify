@@ -41,10 +41,11 @@ const UploadModal = () => {
 	}
 
 	const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-		console.log('UploadingModal/ onSubmit', values)
+		// console.log('UploadingModal/ onSubmit', values)
+		const toastId = toast.loading('Loading...')
+		setIsLoading(true)
 		
 		try {
-			setIsLoading(true)
 
 			const imageFile = values.image?.[0]
 			const songFile = values.song?.[0]
@@ -56,7 +57,7 @@ const UploadModal = () => {
 			
 			const uniqId = uniqid()
 
-			//Upload song TO THE BUCKET
+			//Upload song TO THE BUCKET SONGS
 			const { data: songData, error: songError } = await supabaseClient
 				.storage
 				.from("songs")
@@ -74,7 +75,7 @@ const UploadModal = () => {
 				return toast.error("Fail uploading song")
 			}
 
-			//Upload image TO THE BUCKET
+			//Upload image TO THE BUCKET IMAGES
 			const { data: imageData, error: imageError } = await supabaseClient
 				.storage
 				.from("images")
@@ -92,7 +93,7 @@ const UploadModal = () => {
 				return toast.error("Fail uploading image")
 			}
 
-			// create the song record for the user in the table
+			// create the song record for the user in THE TABLE SONGS
 			const { error: supabaseError } = await supabaseClient
 				.from('songs')
 				.insert(
@@ -113,9 +114,11 @@ const UploadModal = () => {
 			//If everything went well, refresh the page
 			router.refresh()
 			setIsLoading(false)
+			toast.dismiss(toastId)
 			toast.success("Song uploaded successfully")
 			reset()
 			uploadModal.onClose()
+
 
 		} catch (error) {
 			toast.error("Something went wrong")

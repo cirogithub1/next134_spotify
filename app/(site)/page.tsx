@@ -1,10 +1,16 @@
+
 import Header from '@/components/Header'
 import ListItem from '@/components/ListItem'
+import getSongs from '@/actions/getSongs'
+import PageContent from './components/PageContent'
 
 const image = '/images/liked.png'
 
-export default function Home() {
+export const revalidate = 60 * 60
 
+export default async function Home() {
+  const songs = await getSongs()
+  
   return (
     <div className='X'>
       <div className="
@@ -40,11 +46,8 @@ export default function Home() {
               </h1>
             </div>
 
-            <div 
-              className="
-                X">
-              List of Songs
-            </div>
+            <PageContent songs={songs} />
+            
           </div>
       </div>
     </div>
