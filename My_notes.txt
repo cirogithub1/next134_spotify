@@ -39,4 +39,6 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	02:56:49	Download song from supabase
 	03:15:00	Middleware
 	03:23:34	getSongs from supabase
-	03:31:29	Mark
+	03:31:29	creat hook useDebounce
+	03:35:31	npm i query-string
+	03:37:08	Mark
