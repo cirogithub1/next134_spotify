@@ -1,6 +1,10 @@
 import getSongsByTitle from "@/actions/getSongsByTitle"
 import Header from "@/components/Header"
 import SearchInput from "@/components/SearchInput"
+import SearchContent from "./components/SearchContent"
+
+export const revalidate = 30 
+// false | 'force-cache' | 0 | number
 
 interface Props {
   searchParams: {
@@ -24,6 +28,8 @@ const Search = async ({ searchParams }: Props) => {
 							<SearchInput />
 						</div>
 					</Header>
+
+					<SearchContent songs={songs}/>
 		</div>
 	)
 }

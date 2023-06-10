@@ -4,19 +4,20 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import qs from "query-string"
 
-import useDenbounce from '@/hooks/useDenbounce'
+import useDebounce from '@/hooks/useDebounce'
 import Input from './Input'
 
 const SearchInput = () => {
 	const router = useRouter()
 	const [value, setValue] = useState<string>("")
-	const debounceValue = useDenbounce<string>(value, 500)
+	const debounceValue = useDebounce<string>(value, 500)
 
 	useEffect(() => {
 		const query = {
 			title: debounceValue
 		}
 
+		// this gona set the URL to /search?title=
 		const url = qs.stringifyUrl({
 			url: '/search',
 			query: query
@@ -28,7 +29,7 @@ const SearchInput = () => {
 
 	return (
 		<Input 
-			placeholder='I want to listen to...'
+			placeholder='I wanna listen to...'
 			value={value}
 			onChange={(e) => setValue(e.target.value)}
 		/>
