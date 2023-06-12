@@ -18,7 +18,8 @@ const SongItem: FC<Props> = ({ data, onClick }) => {
 	return (
 		<div
 			className='
-				relative flex flex-col group items-center justify-center rounded-none overflow-hidden gap-x-0 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 transition p-3'>
+				relative flex flex-col group items-center justify-center rounded-none overflow-hidden gap-x-0 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 transition p-3'
+			onClick={() => onClick(data.id)}>
 			<div 
 				className="
 					relative aspect-square w-full h-full rounded-md overflow-hidden">
@@ -26,7 +27,8 @@ const SongItem: FC<Props> = ({ data, onClick }) => {
 					className='object-cover'
 					src={imagePath || '/images/liked.png'}
 					alt="Image"
-					fill />
+					fill 
+					sizes='100%'/>
 			</div>
 			
 			<div className="flex flex-col items-start w-full pt-4 gap-y-1">

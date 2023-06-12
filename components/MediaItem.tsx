@@ -33,7 +33,8 @@ const MediaItem: FC<Props> = ({ data , onClick }) => {
 								src={imageUrl || '/images/liked.png'}
 								alt={imageUrl || '/images/liked.png'}
 								className="object-cover"
-								fill />
+								fill 
+								sizes="100%"/>
 
 				</div>
 
