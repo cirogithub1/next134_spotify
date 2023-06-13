@@ -10,6 +10,7 @@ import { Box } from "./Box"
 import SidebarItem from "./SidebarItem"
 import Librery from "./Librery"
 import { Song } from "@/types"
+import usePlayer from "@/hooks/usePlayer"
 
 interface Props {
 	children: ReactNode
@@ -18,6 +19,7 @@ interface Props {
 
 const Sidebar: FC<Props> = ({ children, songs }) => {
 	const pathname = usePathname()
+	const player = usePlayer()
 
 	const routes = useMemo(() => [
 		{
@@ -36,7 +38,7 @@ const Sidebar: FC<Props> = ({ children, songs }) => {
 	], [pathname])
 
 	return (
-		<div className="flex h-full">
+		<div className={`flex h-full ${player.activeId && 'h-[calc(100%-80px)]'}`} >
 			<div 
 				className="
 					hidden md:flex flex-col gap-y-2 h-full w-[300px] p-2"

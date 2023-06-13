@@ -24,31 +24,29 @@ const ListItem: FC<Props> = ({image, name, href}) => {
 		<button 
 			className="
 				flex relative group items-center rounded-md overflow-hidden pr-4 gap-x-4 bg-neutral-100/10 hover:bg-neutral-100/20 transition"
-		>
-			<div className="relative min-h-[56px] min-w-[56px]">
-				<Image
-					className='
-						object-cover p-0'
-					fill
-					src={image}
-					alt={name}
-					sizes='20'
-					placeholder="blur"
-					blurDataURL={image} 
-				/>
-			</div>
+			onClick={handleClick}>
+				<div className="relative min-h-[56px] min-w-[56px]">
+					<Image
+						className='
+							object-cover p-0'
+						fill
+						src={image}
+						alt={name}
+						sizes='20'
+						placeholder="blur"
+						blurDataURL={image} 
+					/>
+				</div>
 
-			<p className="font-medium truncate py-4">
-				{name}
-			</p>
+				<p className="font-medium truncate py-4">
+					{name}
+				</p>
 
-			<div
-				className="
-					absolute flex opacity-0 rounded-full items-center justify-center bg-green-500 p-4 drop-shadow-md right-2 group-hover:opacity-100 hover:scale-105 transition"
-				onClick={handleClick}
-			>
-				<FaPlay className="text-black" />
-			</div>
+				<div
+					className="
+						absolute flex opacity-0 rounded-full items-center justify-center bg-green-500 p-4 drop-shadow-md right-2 group-hover:opacity-100 hover:scale-105 transition">
+						<FaPlay className="text-black" />
+				</div>
 		</button>
 	)
 }

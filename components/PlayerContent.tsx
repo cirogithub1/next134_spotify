@@ -118,7 +118,7 @@ const PlayerContent: FC<Props> = ({song, songUrl }) => {
 							<div 
 								className="
 									flex h-10 w-10 items-center justify-center rounded-full bg-white p-1 cursor-pointer"
-								onClick={() => console.log('play')}>
+								onClick={handlePlay}>
 									<Icon
 										className='text-black' 
 										size={30} />
@@ -138,7 +138,7 @@ const PlayerContent: FC<Props> = ({song, songUrl }) => {
 								<div 
 									className="
 										flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer"
-									onClick={() => console.log('play')}>
+									onClick={handlePlay}>
 										<Icon 
 											className='text-black' 
 											size={30} />

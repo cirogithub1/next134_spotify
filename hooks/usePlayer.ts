@@ -10,7 +10,7 @@ interface Props {
 
 const usePlayer = create<Props>((set) => ({
 	ids: [],
-	activeId: "",
+	activeId: undefined!,
 	setId: (id: string) => set({ activeId: id }),
 	setIds: (ids: string[]) => set({ ids: ids }),
 	reset: () => set({ ids: [], activeId: undefined})

@@ -1,13 +1,16 @@
 "use client"
 
 import { FC } from "react"
+
 import { TbPlaylist } from "react-icons/tb"
 import { AiOutlinePlus } from "react-icons/ai"
+
 import useAuthModal from "@/hooks/useAuthModal"
 import { useUser } from "@/hooks/useUser"
 import useUploadModal from "@/hooks/useUploadModal"
 import { Song } from "@/types"
 import MediaItem from "./MediaItem"
+import useOnPlay from "@/hooks/useOnPlay"
 
 interface Props {
 	songs: Song[]
@@ -15,8 +18,10 @@ interface Props {
 
 const Librery: FC<Props> = ({ songs }) => {
 	const authModal = useAuthModal()
-	const { user } = useUser()
 	const uploadModal = useUploadModal()
+	const { user } = useUser()
+
+	const onPlay = useOnPlay(songs)
 
 	const handleClick = () => {	 
 		if (!user) {
@@ -64,7 +69,7 @@ const Librery: FC<Props> = ({ songs }) => {
 					<MediaItem 
 						key={song.id} 
 						data={song}
-						onClick={() => {}}/>
+						onClick={(id: string) => {onPlay(id)}}/>
 				))}
 			</div>	
 		</div>

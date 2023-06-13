@@ -46,4 +46,8 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	04:16:40	add hook Player	
 	04:33:15	npm i @radix-ui/react-slider
 	04:41:40	npm i use-sound
-	04:46:22	Mark
+	04:53:28	Error handler
+	04:56:25	npm i react-spinners	
+	04:57:56	Add Stripe
+	05:03:03	npm i @stripe/stripe-js
+	05:11:15	Mark
