@@ -23,7 +23,7 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 						npm install @radix-ui/react-dialog
 
 	02:02:30 	https://docs.pmnd.rs/zustand/getting-started/introduction#installation
-						npm install zustand
+						npm i zustand
 
 	02:05:54	npm i @supabase/auth-ui-react
 						npm i @supabase/auth-ui-shared
@@ -50,4 +50,16 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	04:56:25	npm i react-spinners	
 	04:57:56	Add Stripe
 	05:03:03	npm i @stripe/stripe-js
-	05:11:15	Mark
+	05:11:15	stripe /lib setup
+						npm i @supabase/supabase-js
+	05:38:05	supabaseAdmin config
+	05:51:15	stripe CLI
+						Ajoutez le chemin vers le fichier stripe.exe désarchivé à votre variable d’environnement Path:
+							Enregistrement des variables d'environnement avec l'Panneau de configuration système:
+								1. Ouvrez le Panneau de configuration système.
+								2. Sélectionnez Système.
+								3. Sélectionnez Paramètres système avancés.
+								4. Accédez à l'onglet Avancé .
+								5. Sélectionnez Variables d'environnement....
+								6. Apportez vos modifications.
+
