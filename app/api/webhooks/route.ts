@@ -43,12 +43,10 @@ export async function POST(request: Request) {
 		try {
 			switch (event.type) {
 				case "product.created":
-					break
 				case "product.updated":
 					await upsertProductRecord(event.data.object as Stripe.Product)
 					break
 				case "price.created":
-					break
 				case "price.updated":
 					await upsertPriceRecord(event.data.object as Stripe.Price)	
 					break
@@ -64,9 +62,7 @@ export async function POST(request: Request) {
 					}
 					break
 				case "customer.subscription.created":
-						break
 				case "customer.subscription.updated":
-						break
 				case "customer.subscription.deleted":
 					const subscription = event.data.object as Stripe.Subscription
 					await subscriptionStatusChange(

@@ -63,3 +63,7 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 								5. Sélectionnez Variables d'environnement....
 								6. Apportez vos modifications.
 
+	05:58:10	create api sessions and links routes
+	06:06:49	create useSubscribeModal
+	06:13:20	subscribeModal.tsx
+	06:25:22	Mark

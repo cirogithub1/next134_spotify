@@ -6,7 +6,6 @@ import { Database } from "@/types_db"
 import { Price, Product } from "@/types"
 import { stripe } from "./stripe"
 import { toDateTime } from "./helpers"
-import { log } from "console"
 
 export const supabaseAdmin = createClient<Database>(
 	process.env.NEXT_PUBLIC_SUPABASE_URL || "",
@@ -103,7 +102,7 @@ const createOrRetrieveCustomer = async ({ email, uuid }:{ email: string, uuid: s
 	return data.stripe_customer_id
 }
 
-const custumerBillingDetails = async (
+const customerBillingDetails = async (
 	uuid: string,
 	payment_method: Stripe.PaymentMethod
 ) => {
@@ -173,9 +172,15 @@ const subscriptionStatusChange = async (
 		canceled_at: subscription.canceled_at 
 			? toDateTime(subscription.canceled_at).toISOString() 
 			: null,
-		created: toDateTime(subscription.created).toISOString(),
-		current_period_start: toDateTime(subscription.current_period_start).toISOString(),
-		current_period_end: toDateTime(subscription.current_period_end).toISOString(),
+		created: toDateTime(
+			subscription.created
+		).toISOString(),
+		current_period_start: toDateTime(
+			subscription.current_period_start
+		).toISOString(),
+		current_period_end: toDateTime(
+			subscription.current_period_end
+		).toISOString(),
 		ended_at: subscription.ended_at 
 			? toDateTime(subscription.ended_at).toISOString() 
 			: null,
@@ -198,7 +203,7 @@ const subscriptionStatusChange = async (
 	console.log('Subscription inserted / updated :', subscription.id, 'for :', uuid)
 
 	if (createAction && subscription.default_payment_method && uuid) {
-		await custumerBillingDetails(
+		await customerBillingDetails(
 			uuid, 
 			subscription.default_payment_method as Stripe.PaymentMethod
 		)
