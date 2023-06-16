@@ -1,10 +1,11 @@
-"use client"
-
-import { User } from "@supabase/auth-helpers-nextjs"
 import { createContext, useContext, useEffect, useState } from "react"
 
 import { Subscription, UserDetails } from "@/types"
-import { useSessionContext, useUser as useSuperUser } from "@supabase/auth-helpers-react"
+import { 
+	useSessionContext, 
+	useUser as useSuperUser, 
+	User 
+} from "@supabase/auth-helpers-react"
 
 type UserContextType = {
 	accessToken: string | null
@@ -44,10 +45,10 @@ export const MyUserContextProvider = (props: Props) => {
 			.single()
 	// const getUserDetails = async () => await supabase.from('users').select('*').eq('status', 'ONLINE')
 
-	const gerSubscription = async () => 
+	const getSubscription = async () => 
 		await supabase
 			.from('subscriptions')
-			.select('*, prices(*, producs(*))')
+			.select('*, prices(*, products(*))')
 			.in('status', ['trialing', 'active'])
 			.single()
 			// .eq('user_id', user?.id)
@@ -64,7 +65,7 @@ export const MyUserContextProvider = (props: Props) => {
 		if (user && !isLoadingData && !userDetails && !subscription) {
 			setIsLoadingData(true)
 
-			Promise.allSettled([getUserDetails(), gerSubscription()])
+			Promise.allSettled([getUserDetails(), getSubscription()])
 				.then(results => {
 					const userDetailsPromise = results[0]
 					const subscriptionPromise = results[1]

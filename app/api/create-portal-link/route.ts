@@ -33,7 +33,8 @@ export async function POST() {
 			return_url: `${getURL()}/account`
 		})
 
-		return NextResponse.json({ url})
+		return NextResponse.json({ url })
+		
 		}	 catch (error) {
 			console.log(error)
 			return NextResponse.json('Internal Server Error', { status: 500 })

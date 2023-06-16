@@ -1,13 +1,13 @@
 "use client"
 
-import { PacmanLoader } from "react-spinners"
+import { CircleLoader } from "react-spinners"
 import { Box } from "@/components/Box"
 
 const Loading = () => {
 	return (
 		<Box
 			className="flex h-full items-center justify-center">
-				<PacmanLoader 
+				<CircleLoader 
 					color='yellow'
 					loading={true}
 					size={25}

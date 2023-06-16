@@ -62,6 +62,9 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 								4. Accédez à l'onglet Avancé .
 								5. Sélectionnez Variables d'environnement....
 								6. Apportez vos modifications.
+						Command Line MS:
+						stripe login
+						stripe listen --forward-to localhost:3000/api/webhooks
 
 	05:58:10	create api sessions and links routes
 	06:06:49	create useSubscribeModal

@@ -5,21 +5,25 @@ import { FC } from "react"
 import { TbPlaylist } from "react-icons/tb"
 import { AiOutlinePlus } from "react-icons/ai"
 
-import useAuthModal from "@/hooks/useAuthModal"
-import { useUser } from "@/hooks/useUser"
-import useUploadModal from "@/hooks/useUploadModal"
 import { Song } from "@/types"
-import MediaItem from "./MediaItem"
+
+import { useUser } from "@/hooks/useUser"
 import useOnPlay from "@/hooks/useOnPlay"
+import useAuthModal from "@/hooks/useAuthModal"
+import useUploadModal from "@/hooks/useUploadModal"
+import useSubscribeModal from "@/hooks/useSubscribeModal"
+
+import MediaItem from "./MediaItem"
 
 interface Props {
 	songs: Song[]
 }
 
 const Librery: FC<Props> = ({ songs }) => {
+	const subscribeModal = useSubscribeModal()
 	const authModal = useAuthModal()
 	const uploadModal = useUploadModal()
-	const { user } = useUser()
+	const { user, subscription } = useUser()
 
 	const onPlay = useOnPlay(songs)
 
@@ -28,8 +32,11 @@ const Librery: FC<Props> = ({ songs }) => {
 			return authModal.onOpen()
 		}
 
-		// for later: check supscriptions
-		uploadModal.onOpen()
+		if (!subscription) {
+			return subscribeModal.onOpen()
+		}
+
+		return uploadModal.onOpen()
 	}
 
 	return (

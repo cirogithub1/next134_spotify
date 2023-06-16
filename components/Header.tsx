@@ -3,6 +3,7 @@
 import { FC, ReactNode } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
+import { toast } from 'react-hot-toast'
 
 import { RxCaretLeft, RxCaretRight } from 'react-icons/rx'
 import { HiHome } from 'react-icons/hi'
@@ -10,21 +11,22 @@ import { BiSearch } from 'react-icons/bi'
 import { FaUserAlt } from 'react-icons/fa'
 
 import useAuthModal from '@/hooks/useAuthModal'
-import Button from './Button'
+import usePlayer from '@/hooks/usePlayer'
 import { useUser } from '@/hooks/useUser'
-import { toast } from 'react-hot-toast'
+import Button from './Button'
+
 interface Props {
 	children: ReactNode,
 	className: string
 }
 
 const Header: FC<Props> = ({ children, className }) => {
-
+	const player = usePlayer()
 	const router = useRouter()
 	const authModal = useAuthModal()
 
 	const supabaseClient = useSupabaseClient()
-	const { user, subscription } = useUser()
+	const { user } = useUser()
 
 	const handleLogin = () => {
 		authModal.onOpen()
@@ -33,6 +35,7 @@ const Header: FC<Props> = ({ children, className }) => {
 	const handleLogout = async () => {
 		const { error } = await supabaseClient.auth.signOut()
 
+		player.reset()
 		router.refresh()
 
 		if (error) {
@@ -104,22 +107,24 @@ const Header: FC<Props> = ({ children, className }) => {
 					className="
 						flex justify-between items-center gap-x-4"
 				>
-					{user ? (
-						<div className='flex gap-x-4 items-center'>
-							<Button
-								className='bg-white px-6'
-								onClick={handleLogout}
-							>
-								Logout
-							</Button>
+					{user 
+					? (
+							<div className='flex gap-x-4 items-center'>
+								<Button
+									className='bg-white px-6'
+									onClick={handleLogout}
+								>
+									Logout
+								</Button>
 
-							<Button
-								className=''
-								onClick={() => router.push('/profile')}>
-								<FaUserAlt />
-							</Button>
-						</div>
-					) : (
+								<Button
+									className=''
+									onClick={() => router.push('/account')}>
+									<FaUserAlt />
+								</Button>
+							</div>
+						) 
+					: (
 						<>
 							<div>
 								<Button

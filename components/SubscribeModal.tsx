@@ -48,7 +48,7 @@ const SubscribeModal: FC<Props> = ({ products }) => {
 		if (subscription) {
 			setPriceIdLoading(undefined)
 			return toast("You are already subscribed")
-		}
+		} 
 
 		try {
 			const { sessionId } = await postData({

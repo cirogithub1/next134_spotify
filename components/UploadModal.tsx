@@ -23,15 +23,14 @@ const UploadModal = () => {
 
 	const [isLoading, setIsLoading] = useState(false)
 
-	const { register, handleSubmit, reset } = useForm<FieldValues>(
-		{
-			defaultValues: {
+	const { register, handleSubmit, reset } = useForm<FieldValues>({
+		defaultValues: {
 			author: '',
 			title: '',
 			song: null,
 			image: null
-		}}
-	)
+		}
+	})
 
 	const onChange = (open: boolean) => {
 		if (!open) {
@@ -41,16 +40,17 @@ const UploadModal = () => {
 	}
 
 	const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-		// console.log('UploadingModal/ onSubmit', values)
+
 		const toastId = toast.loading('Loading...')
 		setIsLoading(true)
 		
 		try {
-
 			const imageFile = values.image?.[0]
 			const songFile = values.song?.[0]
 
 			if (!imageFile || !songFile || !user) {
+				toast(`User : ${user}`)
+
 				toast.error("Some missing fields")
 				return
 			}
@@ -72,6 +72,7 @@ const UploadModal = () => {
 			
 			if (songError) {
 				setIsLoading(false)
+				toast.dismiss(toastId)
 				return toast.error("Fail uploading song")
 			}
 
@@ -90,24 +91,25 @@ const UploadModal = () => {
 			
 			if (imageError) {
 				setIsLoading(false)
+				toast.dismiss(toastId)
 				return toast.error("Fail uploading image")
 			}
 
 			// create the song record for the user in THE TABLE SONGS
 			const { error: supabaseError } = await supabaseClient
 				.from('songs')
-				.insert(
-					{
-						user_id: user.id,
-						title: values.title,
-						author: values.author,
-						image_path: imageData.path,
-						song_path: songData.path
-					}
-				)
+				.insert({
+					user_id: user.id,
+					title: values.title,
+					author: values.author,
+					image_path: imageData.path,
+					song_path: songData.path
+				})
 
 			if (supabaseError) {
 				setIsLoading(false)
+				toast.dismiss(toastId)
+				console.log('/components/UploadModal.tsx supabaseError: ', supabaseError)
 				return toast.error(supabaseError.message)
 			}
 
@@ -121,8 +123,10 @@ const UploadModal = () => {
 
 
 		} catch (error) {
+			toast.dismiss(toastId)
 			toast.error("Something went wrong")
 		} finally {
+			toast.dismiss(toastId)
 			setIsLoading(false)
 		}
 	}
@@ -140,14 +144,13 @@ const UploadModal = () => {
 							id="title"
 							disabled={isLoading}
 							{...register("title", { required: true })}
-							placeholder="Song Title"
-						/>
+							placeholder="Song Title" />
 
 						<Input
 							id="author"
 							disabled={isLoading}
 							{...register("author", { required: true })}
-							placeholder="Song author"/>
+							placeholder="Song author" />
 
 						<div>
 							<div className="pb-1">
@@ -159,7 +162,7 @@ const UploadModal = () => {
 								type= "file"
 								disabled={isLoading}
 								accept= ".mp3"
-								{...register("song", { required: true })}/>
+								{...register("song", { required: true })} />
 						</div>
 
 						<div>
@@ -172,19 +175,16 @@ const UploadModal = () => {
 								type= "file"
 								disabled={isLoading}
 								accept= "image/*"
-								{...register("image", { required: true })}/>
+								{...register("image", { required: true })} />
 						</div>
 
 						<Button 
 							disabled={isLoading} 
 							type="submit"
-							onClick={onSubmit}
-						>
-							Upload
+							onClick={onSubmit}>
+								Upload
 						</Button>
-
 				</form>
-				
 		</Modal>
 	)
 }
