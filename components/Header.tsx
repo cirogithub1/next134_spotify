@@ -17,7 +17,7 @@ import Button from './Button'
 
 interface Props {
 	children: ReactNode,
-	className: string
+	className?: string
 }
 
 const Header: FC<Props> = ({ children, className }) => {
@@ -56,27 +56,24 @@ const Header: FC<Props> = ({ children, className }) => {
 					flex w-full justify-between items-center mb-4">
 				<div 
 					className="
-						hidden md:flex gap-x-2 items-center"
-				>
-					<button 
-						className="
-							flex items-center justify-center rounded-full bg-black hover:opacity-75 transition"
-						onClick={() => router.back()}
-					>
-						<RxCaretLeft 
-							className='
-								h-6 w-6 cursor-pointer'	/>
-					</button>
+						hidden md:flex gap-x-2 items-center">
+							<button 
+								className="
+									flex items-center justify-center rounded-full bg-black hover:opacity-75 transition"
+								onClick={() => router.back()}>
+									<RxCaretLeft 
+										className='
+										h-6 w-6 cursor-pointer'	/>
+							</button>
 
-					<button 
-						className="
-							flex items-center justify-center rounded-full bg-black hover:opacity-75 transition"
-						onClick={() => router.forward()}
-					>
-						<RxCaretRight 
-							className='
-								h-6 w-6 cursor-pointer'	/>
-					</button>
+							<button 
+								className="
+									flex items-center justify-center rounded-full bg-black hover:opacity-75 transition"
+								onClick={() => router.forward()}>
+									<RxCaretRight 
+										className='
+										h-6 w-6 cursor-pointer'	/>
+							</button>
 				</div>
 
 				<div
@@ -85,20 +82,18 @@ const Header: FC<Props> = ({ children, className }) => {
 					<button 
 						className='
 							flex justify-center items-center rounded-full bg-white p-2 hover:opacity-60 transition'
-						onClick={() => router.push('/')}
-					>
-						< HiHome 
-							className='
+						onClick={() => router.push('/')}>
+							< HiHome 
+								className='
 								h-6 w-6 cursor-pointer text-black' />
 					</button>
 					
 					<button 
 						className='
 							flex justify-center items-center rounded-full bg-white p-2 hover:opacity-60 transition'
-						onClick={() => router.push('/search')}
-					>
-						<  BiSearch 
-							className='
+						onClick={() => router.push('/search')}>
+							<BiSearch 
+								className='
 								h-6 w-6 cursor-pointer text-black' />
 					</button>
 				</div>
@@ -112,15 +107,14 @@ const Header: FC<Props> = ({ children, className }) => {
 							<div className='flex gap-x-4 items-center'>
 								<Button
 									className='bg-white px-6'
-									onClick={handleLogout}
-								>
-									Logout
+									onClick={handleLogout}>
+										Logout
 								</Button>
 
 								<Button
 									className=''
 									onClick={() => router.push('/account')}>
-									<FaUserAlt />
+										<FaUserAlt />
 								</Button>
 							</div>
 						) 
@@ -130,9 +124,8 @@ const Header: FC<Props> = ({ children, className }) => {
 								<Button
 									className='
 										bg-transparent text-neutral-300 font-medium'
-									onClick={authModal.onOpen}
-								>
-									Sign up
+									onClick={authModal.onOpen}>
+										Sign up
 								</Button>
 							</div>
 							
@@ -140,9 +133,8 @@ const Header: FC<Props> = ({ children, className }) => {
 								<Button
 									className='
 										bg-gray-100 px-6 py-1'
-									onClick={handleLogin}
-								>
-									Log in
+									onClick={handleLogin}>
+										Log in
 								</Button>
 							</div>
 						</>)}

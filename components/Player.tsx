@@ -13,7 +13,7 @@ const Player = () => {
 	// exclamation point is for typescript to know that songUrl could be null
 
 	if (!song || !songUrl || !player.activeId) {
-		return <div>Player Null</div>
+		return null
 	} 
 
 	return (

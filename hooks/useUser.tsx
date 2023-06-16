@@ -43,7 +43,6 @@ export const MyUserContextProvider = (props: Props) => {
 			.from('users')
 			.select('*')
 			.single()
-	// const getUserDetails = async () => await supabase.from('users').select('*').eq('status', 'ONLINE')
 
 	const getSubscription = async () => 
 		await supabase
@@ -51,7 +50,6 @@ export const MyUserContextProvider = (props: Props) => {
 			.select('*, prices(*, products(*))')
 			.in('status', ['trialing', 'active'])
 			.single()
-			// .eq('user_id', user?.id)
 
 	const value = {
 		accessToken,
@@ -80,7 +78,7 @@ export const MyUserContextProvider = (props: Props) => {
 					
 					setIsLoadingData(false)
 				})
-		} else if (!user && !isLoadingUser && userDetails && subscription) {
+		} else if (!user && !isLoadingUser && !isLoadingData) {
 			setUserDetails(null)
 			setSubscription(null)
 		} 	
@@ -94,7 +92,7 @@ export const useUser = () => {
 	const context = useContext(UserContext)
 
 	if (context === undefined) {
-		throw new Error('useUser must be used within a MyUserConntextProvider')
+		throw new Error('useUser must be used within a MyUserContextProvider')
 	}
 
 	return context

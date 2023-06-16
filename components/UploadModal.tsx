@@ -42,16 +42,15 @@ const UploadModal = () => {
 	const onSubmit: SubmitHandler<FieldValues> = async (values) => {
 
 		const toastId = toast.loading('Loading...')
-		setIsLoading(true)
 		
 		try {
-			const imageFile = values.image?.[0]
-			const songFile = values.song?.[0]
+			setIsLoading(true)
+			const imageFile = await values.image?.[0]
+			const songFile = await values.song?.[0]
 
-			if (!imageFile || !songFile || !user) {
-				toast(`User : ${user}`)
-
+			if (!values.image?.[0] || !values.song?.[0] || !user) {
 				toast.error("Some missing fields")
+				setIsLoading(false)
 				return
 			}
 			

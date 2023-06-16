@@ -91,7 +91,7 @@ const SubscribeModal: FC<Props> = ({ products }) => {
 							className="mb-4"
 							disabled={isLoading || price.id === priceIdLoading}
 							onClick={() => handleCheckout(price)}>
-							{`Subscribe for $${formatPrice(price)} a ${price.interval}`}
+							{`Subscribe in ${price.products?.active} for $${formatPrice(price)} a ${price.interval}`}
 						</Button>
 					))
 				})}
