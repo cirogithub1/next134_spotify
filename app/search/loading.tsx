@@ -8,11 +8,11 @@ const Loading = () => {
 		<Box
 			className="flex h-full items-center justify-center">
 				<CircleLoader 
-					color='yellow'
+					color='red'
 					loading={true}
-					size={25}
+					size={80}
 					aria-label="Loading Spinner"
-					data-testid="loader"/>
+					data-testid="loader" />
 
 		</Box>
 	)

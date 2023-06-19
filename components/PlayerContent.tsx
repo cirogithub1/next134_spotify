@@ -58,7 +58,7 @@ const PlayerContent: FC<Props> = ({song, songUrl }) => {
 
 	}
 
-	const [play, { pause, sound }] = useSound(
+	const [play, { pause, sound, duration }] = useSound(
 		songUrl,
 		{
 			volume: volume,
@@ -149,6 +149,12 @@ const PlayerContent: FC<Props> = ({song, songUrl }) => {
 										text-neutral-500 cursor-pointer hover:text-white transition'
 									size={30} 
 									onClick={onPlayNext} />
+
+								<div>
+									<p>
+										Duration: {duration&& (duration / 1000 / 60).toFixed(2)}
+									</p>
+								</div>
 				</div>
 
 				<div 

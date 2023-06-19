@@ -1,9 +1,11 @@
 "use Client"
 
 import { FC } from "react"
+import Image from "next/image"
+
 import { Song } from "@/types"
 import useLoadImage from "@/hooks/useLoadImage"
-import Image from "next/image"
+import usePlayer from "@/hooks/usePlayer"
 
 interface Props {
 	data: Song
@@ -11,6 +13,7 @@ interface Props {
 }
 
 const MediaItem: FC<Props> = ({ data , onClick }) => {
+	const player = usePlayer()
 	const imageUrl = useLoadImage(data)
 
 	const handleClick = () => {
@@ -18,7 +21,7 @@ const MediaItem: FC<Props> = ({ data , onClick }) => {
 			return onClick(data.id)
 		}
 
-		// turn on player
+		return player.setId(data.id)
 	}
 
 	return (

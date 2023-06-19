@@ -71,4 +71,7 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 	05:58:10	create api sessions and links routes
 	06:06:49	create useSubscribeModal
 	06:13:20	subscribeModal.tsx
-	06:25:22	Mark
+	06:37:00	Problem :	You can’t create a portal 
+											session in test mode until you save your customer portal settings in test mode at https://dashboard.stripe.com/test/settings/billing/portal
+						Solution: 	check the "portal client link" to active
+	06:37:57	Deploy on vercel

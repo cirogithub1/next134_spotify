@@ -1,18 +1,18 @@
 "use client"
 
-import { PacmanLoader } from "react-spinners"
+import { CircleLoader } from "react-spinners"
 import { Box } from "@/components/Box"
 
 const Loading = () => {
 	return (
 		<Box
 			className="flex h-full items-center justify-center">
-				<PacmanLoader 
-					color='yellow'
+				<CircleLoader 
+					color='red'
 					loading={true}
-					size={25}
+					size={80}
 					aria-label="Loading Spinner"
-					data-testid="loader"/>
+					data-testid="loader" />
 
 		</Box>
 	)

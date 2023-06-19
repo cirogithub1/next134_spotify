@@ -10,9 +10,9 @@ const Loading = () => {
 				<CircleLoader 
 					color='red'
 					loading={true}
-					size={50}
+					size={80}
 					aria-label="Loading Spinner"
-					data-testid="loader"/>
+					data-testid="loader" />
 
 		</Box>
 	)
