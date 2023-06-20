@@ -75,3 +75,6 @@ Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwi
 											session in test mode until you save your customer portal settings in test mode at https://dashboard.stripe.com/test/settings/billing/portal
 						Solution: 	check the "portal client link" to active
 	06:37:57	Deploy on vercel
+	06:42:00	setting enpoint URL in Stripe	
+						get new webhooks key
+	06:44:59	change URL configuration at "Authentication" in Supabase
